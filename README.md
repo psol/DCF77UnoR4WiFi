@@ -30,7 +30,7 @@ The organisation of Arduino loop achieves three desirable properties:
  - the logic remains mono-threaded and reasonably easy to understand and debug
 
 Being mono-threaded means that algorithms can rely on global/statically allocated memory instead of the stack or the heap. This shaves a few CPU cycles, small savings add up.
-![DCF77 Encoding](docs/encoding.gif)
+![DCF77 Encoding](docs/encoding.jpg)
 ### TimeHistory
 I debated long and hard on the data structure to store the time "frames" before writing the TimeHistory class. The data structure is highly specific to the constraints of this sketch.
 The Renesas RA4M1 only has 32Kb of RAM. Each frame is 8 bytes long and there's a new frame every minute.
@@ -47,7 +47,7 @@ I'm sure that the sketch can be adapted to other receivers.
 The board powers the receivers directly.
 A pull-down resistor is required on the signal pin. Apparently the Renasas RA4M1 does not have pull-down on input pins.
 Use the iPhone translator app to read the documentation that ships with your receiver. The English PDF version available online lays down different colours for the wiring (fortunately the output is protected).
-![Wiring of the Arduino and DCF77 receiver](docs/wiring.gif)
+![Wiring of the Arduino and DCF77 receiver](docs/wiring.png)
 ### A word on electromagnetic interferences
 Given that the watch fails to sync a couple of days a week, I expected low quality signal so I was bracing myself for an error-correction algorithm but it turns out that the reception is good in my area so I don't need much error correction at all.
 The receiver however is very sensitive to electromagnetic interferences. Singularly including interferences produced by the Arduino board itself! You want the receiver at least 50cm away from the board.
